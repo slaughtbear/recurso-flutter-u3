@@ -99,7 +99,6 @@ class _HomeState extends State<Home> {
     }
   }
 
-
   // FUNCIÓN PARA ENVIAR DATOS
   void sendData(String msg) async {
     if (_device != null && _btConnected) {
@@ -128,7 +127,7 @@ class _HomeState extends State<Home> {
                   await characteristic.setNotifyValue(true); // Habilitar notificaciones
                   characteristic.value.listen((value) { // Si la característica cambia entonces...
                     String receivedData = String.fromCharCodes(value);
-                    print('Datos recibidos: $receivedData'); // Imprime los datos recibidos
+                    //print('Datos recibidos: $receivedData');
 
                     // Solo divide los datos si contienen al menos dos "//"
                     List<String> datos = receivedData.split('//');
@@ -147,7 +146,7 @@ class _HomeState extends State<Home> {
                       }
                       if (altBlue != null) {
                         _altReceived = altBlue; // Asigna los datos recibidos a las variables temporales
-                        print('Altitud procesada: $altBlue');  // <-- Añade esto
+                        //print('Altitud procesada: $altBlue');
                       }
 
                       // Se actualiza la interfaz para reflejar los nuevos valores
@@ -167,8 +166,6 @@ class _HomeState extends State<Home> {
     }
   }
 
-
-
   @override
   void initState() {
     super.initState();
@@ -183,7 +180,6 @@ class _HomeState extends State<Home> {
       });
     });
   }
-
 
   @override
   void dispose() {
